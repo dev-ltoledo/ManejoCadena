@@ -1,0 +1,701 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package manejocadenas;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+/**
+ *
+ * @author ltoledo
+ */
+public class ManejoCadena extends javax.swing.JFrame {
+
+    private String[] palabras;
+    private static File currentFile = null;
+    /**
+     * Creates new form ManejoCadena
+     */
+    public ManejoCadena() {
+        initComponents();
+    }
+    
+    
+    private void ProcesarPalabrasEnArray(){
+        String texto = TextAreaTexto.getText();
+        
+        if (texto.isEmpty()) {
+            return;
+        }
+                
+        int palabrasPares = 0;
+        int palabrasImpares = 0;
+        
+        palabras = texto.split("\\s+");
+        
+            String primerPalabra = palabras[0];
+            String ultimaPalabra = palabras[palabras.length - 1];
+            String palabraCentral = palabras[palabras.length / 2];
+                                    
+            for (String palabra : palabras) {
+                if (palabra.length() % 2 == 0) {
+                    palabrasPares++;
+                } else {
+                    palabrasImpares++;
+                }
+            }
+            
+            ContadorTotalPalabras.setText(Integer.toString(palabras.length));
+            PrimerPalabra.setText(primerPalabra);
+            PalabraCentral.setText(palabraCentral);
+            UltimaPalabra.setText(ultimaPalabra);
+            PalabrasCantidadPares.setText(Integer.toString(palabrasPares)); 
+            PalabrasCantidadImpar.setText(Integer.toString(palabrasImpares)); 
+        
+    }
+    
+    private void ProcesarPalabrasPorLetra(){
+        String texto = TextAreaTexto.getText();
+        int contadorA = 0, contadorE = 0, contadorI = 0, contadorO = 0, contadorU = 0;
+        
+        if (texto.length() > 0) {
+            
+            String textoSinEspacio = texto.replaceAll("\\s+", "");
+            char primeraLetra = textoSinEspacio.charAt(0);
+            char ultimaLetra = textoSinEspacio.charAt(textoSinEspacio.length() - 1);
+            char letraCentral = textoSinEspacio.charAt(textoSinEspacio.length() / 2);
+            
+            for (int i = 0; i < texto.length(); i++) {
+            char caracter = texto.charAt(i);
+            
+            switch (caracter) 
+                {
+                    case 'a', 'á', 'A', 'Á' -> contadorA++;
+                    case 'e', 'é', 'E', 'É' -> contadorE++;
+                    case 'i', 'í', 'I', 'Í' -> contadorI++;
+                    case 'o', 'ó', 'O', 'Ó' -> contadorO++;
+                    case 'u', 'ú', 'U', 'Ú' -> contadorU++;
+                }
+            }
+                        
+            ContadorLongitudTexto.setText(Integer.toString(texto.length()));
+            PrimerLetraTexto.setText(Character.toString(primeraLetra));
+            UltimaLetraTexto.setText(Character.toString(ultimaLetra));
+            LetraCentralTexto.setText(Character.toString(letraCentral));
+            ContadorLetraA.setText(Integer.toString(contadorA));
+            ContadorLetraE.setText(Integer.toString(contadorE));
+            ContadorLetraI.setText(Integer.toString(contadorI));
+            ContadorLetraO.setText(Integer.toString(contadorO));
+            ContadorLetraU.setText(Integer.toString(contadorU));
+        }
+        
+    }
+    
+    public void TraducirClaveMurcielago() {
+        
+        String texto = TextAreaTexto.getText().toLowerCase();
+
+        char[] letras = {'m', 'u', 'r', 'c', 'i', 'e', 'l', 'a', 'g', 'o'};
+        char[] claves = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
+        StringBuilder textoConvertido = new StringBuilder();
+
+        for (char c : texto.toCharArray()) {
+            int index = -1;
+            for (int i = 0; i < letras.length; i++) {
+                if (letras[i] == c) {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index != -1) {
+                textoConvertido.append(claves[index]);
+            } else {
+                textoConvertido.append(c);
+            }
+        }
+        
+        TextAreaTraduccion.setText(textoConvertido.toString());
+    }
+    
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jFileChooser1 = new javax.swing.JFileChooser();
+        PanelInterfaz = new javax.swing.JPanel();
+        ScrollTextAreaTexto = new javax.swing.JScrollPane();
+        TextAreaTexto = new javax.swing.JTextArea();
+        ScrollTextAreaTraduccion = new javax.swing.JScrollPane();
+        TextAreaTraduccion = new javax.swing.JTextArea();
+        btnProcesar = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
+        lblTituloTraductor = new javax.swing.JLabel();
+        lblCuerpo = new javax.swing.JLabel();
+        lblContadorLongitudTexto = new javax.swing.JLabel();
+        lblContadorTotalPalabras = new javax.swing.JLabel();
+        lblPrimerLetraTexto = new javax.swing.JLabel();
+        lblUltimaLetraTexto = new javax.swing.JLabel();
+        lblLetraCentralTexto = new javax.swing.JLabel();
+        lblPrimerPalabra = new javax.swing.JLabel();
+        lblPalabraCentral = new javax.swing.JLabel();
+        lblUltimaPalabra = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        ContadorLongitudTexto = new javax.swing.JLabel();
+        ContadorTotalPalabras = new javax.swing.JLabel();
+        PrimerLetraTexto = new javax.swing.JLabel();
+        UltimaLetraTexto = new javax.swing.JLabel();
+        LetraCentralTexto = new javax.swing.JLabel();
+        PrimerPalabra = new javax.swing.JLabel();
+        PalabraCentral = new javax.swing.JLabel();
+        UltimaPalabra = new javax.swing.JLabel();
+        ContadorLetraA = new javax.swing.JLabel();
+        ContadorLetraE = new javax.swing.JLabel();
+        ContadorLetraI = new javax.swing.JLabel();
+        ContadorLetraO = new javax.swing.JLabel();
+        ContadorLetraU = new javax.swing.JLabel();
+        PalabrasCantidadPares = new javax.swing.JLabel();
+        PalabrasCantidadImpar = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        MenuArchivo = new javax.swing.JMenuItem();
+        MenuGuardar = new javax.swing.JMenuItem();
+        MenuGuardarComo = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        MenuCopiar = new javax.swing.JMenuItem();
+        MenuCortar = new javax.swing.JMenuItem();
+        MenuPegar = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        TextAreaTexto.setColumns(20);
+        TextAreaTexto.setRows(5);
+        ScrollTextAreaTexto.setViewportView(TextAreaTexto);
+
+        TextAreaTraduccion.setColumns(20);
+        TextAreaTraduccion.setRows(5);
+        ScrollTextAreaTraduccion.setViewportView(TextAreaTraduccion);
+
+        btnProcesar.setText("Procesar");
+        btnProcesar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProcesarActionPerformed(evt);
+            }
+        });
+
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitulo.setText("Manejo de cadena");
+
+        lblTituloTraductor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTituloTraductor.setText("Traducción a clave murcielago");
+
+        lblCuerpo.setText("Ingrese un texto o abra un archivo");
+
+        lblContadorLongitudTexto.setText("Longitud del texto");
+
+        lblContadorTotalPalabras.setText("Total de palabras");
+
+        lblPrimerLetraTexto.setText("Primer letra del texto");
+
+        lblUltimaLetraTexto.setText("Última letra del texto");
+
+        lblLetraCentralTexto.setText("Letra central del texto");
+
+        lblPrimerPalabra.setText("Primera palabra");
+
+        lblPalabraCentral.setText("Palabra central");
+
+        lblUltimaPalabra.setText("Última palabra");
+
+        jLabel11.setText("Repeticiones de \"A\", \"a\" o \"á\":");
+
+        jLabel12.setText("Repeticiones de \"E\", \"e\" ó \"é\":");
+
+        jLabel13.setText("Repeticiones de \"I\", \"í\" ó \"í\":");
+
+        jLabel14.setText("Repeticiones de \"O\", \"o\" ó \"ó\":");
+
+        jLabel15.setText("Repeticiones de \"U\", \"u\" ó \"ú\":");
+
+        jLabel16.setText("Palabras con cantidad de caracteres par:");
+
+        jLabel17.setText("Palabras con cantidad de caracteres impar:");
+
+        ContadorLongitudTexto.setText("0");
+
+        ContadorTotalPalabras.setText("0");
+
+        LetraCentralTexto.setToolTipText("");
+
+        ContadorLetraA.setText("0");
+
+        ContadorLetraE.setText("0");
+
+        ContadorLetraI.setText("0");
+
+        ContadorLetraO.setText("0");
+
+        ContadorLetraU.setText("0");
+
+        PalabrasCantidadPares.setText("0");
+
+        PalabrasCantidadImpar.setText("0");
+
+        javax.swing.GroupLayout PanelInterfazLayout = new javax.swing.GroupLayout(PanelInterfaz);
+        PanelInterfaz.setLayout(PanelInterfazLayout);
+        PanelInterfazLayout.setHorizontalGroup(
+            PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelInterfazLayout.createSequentialGroup()
+                .addComponent(lblCuerpo)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(ScrollTextAreaTexto)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInterfazLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnProcesar)
+                .addGap(262, 262, 262))
+            .addGroup(PanelInterfazLayout.createSequentialGroup()
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelInterfazLayout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addComponent(lblTitulo))
+                    .addGroup(PanelInterfazLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(lblTituloTraductor)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PanelInterfazLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblUltimaLetraTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLetraCentralTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblContadorTotalPalabras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPrimerLetraTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPrimerPalabra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPalabraCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblUltimaPalabra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblContadorLongitudTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ContadorLongitudTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(ContadorTotalPalabras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PrimerLetraTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(UltimaLetraTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInterfazLayout.createSequentialGroup()
+                        .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(PrimerPalabra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LetraCentralTexto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(6, 6, 6))
+                    .addComponent(PalabraCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(UltimaPalabra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ContadorLetraA)
+                    .addComponent(ContadorLetraE)
+                    .addComponent(ContadorLetraI)
+                    .addComponent(ContadorLetraO)
+                    .addComponent(ContadorLetraU)
+                    .addComponent(PalabrasCantidadPares)
+                    .addComponent(PalabrasCantidadImpar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
+            .addComponent(ScrollTextAreaTraduccion, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        PanelInterfazLayout.setVerticalGroup(
+            PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelInterfazLayout.createSequentialGroup()
+                .addComponent(lblTitulo)
+                .addGap(40, 40, 40)
+                .addComponent(lblCuerpo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ScrollTextAreaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProcesar)
+                .addGap(32, 32, 32)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblContadorLongitudTexto)
+                    .addComponent(jLabel11)
+                    .addComponent(ContadorLongitudTexto)
+                    .addComponent(ContadorLetraA))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblContadorTotalPalabras)
+                    .addComponent(jLabel12)
+                    .addComponent(ContadorTotalPalabras)
+                    .addComponent(ContadorLetraE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPrimerLetraTexto)
+                    .addComponent(jLabel13)
+                    .addComponent(PrimerLetraTexto)
+                    .addComponent(ContadorLetraI))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUltimaLetraTexto)
+                    .addComponent(jLabel14)
+                    .addComponent(UltimaLetraTexto)
+                    .addComponent(ContadorLetraO))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLetraCentralTexto)
+                    .addComponent(jLabel15)
+                    .addComponent(LetraCentralTexto)
+                    .addComponent(ContadorLetraU))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPrimerPalabra)
+                    .addComponent(jLabel16)
+                    .addComponent(PrimerPalabra)
+                    .addComponent(PalabrasCantidadPares))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPalabraCentral)
+                    .addComponent(jLabel17)
+                    .addComponent(PalabraCentral)
+                    .addComponent(PalabrasCantidadImpar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUltimaPalabra)
+                    .addComponent(UltimaPalabra))
+                .addGap(18, 18, 18)
+                .addComponent(lblTituloTraductor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ScrollTextAreaTraduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jMenu1.setText("Archivo");
+
+        MenuArchivo.setText("Archivo");
+        MenuArchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuArchivoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuArchivo);
+
+        MenuGuardar.setText("Guardar");
+        MenuGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuGuardarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuGuardar);
+
+        MenuGuardarComo.setText("Guardar como");
+        MenuGuardarComo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuGuardarComoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuGuardarComo);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Editar");
+
+        MenuCopiar.setText("Copiar");
+        MenuCopiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuCopiarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenuCopiar);
+
+        MenuCortar.setText("Cortar");
+        MenuCortar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuCortarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenuCortar);
+
+        MenuPegar.setText("Pegar");
+        MenuPegar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuPegarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenuPegar);
+
+        jMenuItem8.setText("Buscar");
+        jMenu2.add(jMenuItem8);
+
+        jMenuItem6.setText("Reemplazar");
+        jMenu2.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PanelInterfaz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PanelInterfaz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarActionPerformed
+        // Procesamos las palabras
+        ProcesarPalabrasEnArray();
+        
+        // Procesamos las letras
+        ProcesarPalabrasPorLetra();
+        
+        // Traducimos el texto
+        TraducirClaveMurcielago();
+    }//GEN-LAST:event_btnProcesarActionPerformed
+
+    private void MenuCopiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCopiarActionPerformed
+        Robot robot;
+        
+        try {
+                robot = new Robot();
+                robot.keyPress(KeyEvent.VK_CONTROL);
+                robot.keyPress(KeyEvent.VK_C);
+                robot.keyRelease(KeyEvent.VK_C);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
+            } 
+        catch (AWTException ex) 
+        {
+            Logger.getLogger(ManejoCadena.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_MenuCopiarActionPerformed
+
+    private void MenuCortarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCortarActionPerformed
+        Robot robot;
+        
+        try {
+            robot = new Robot();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_X);
+            robot.keyRelease(KeyEvent.VK_X);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            } 
+        catch (AWTException ex) 
+        {
+            Logger.getLogger(ManejoCadena.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_MenuCortarActionPerformed
+
+    private void MenuPegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPegarActionPerformed
+        Robot robot;
+        
+        try {
+                robot = new Robot();
+                robot.keyPress(KeyEvent.VK_CONTROL);
+                robot.keyPress(KeyEvent.VK_V);
+                robot.keyRelease(KeyEvent.VK_V);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
+            } 
+        catch (AWTException ex) 
+        {
+            Logger.getLogger(ManejoCadena.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_MenuPegarActionPerformed
+
+    private void MenuGuardarComoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuGuardarComoActionPerformed
+
+            JFileChooser fileChooser = new JFileChooser();
+    // Configura el filtro para archivos .txt
+    FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("Text Files", "txt");
+    fileChooser.setFileFilter(txtFilter);
+    
+        int returnValue = fileChooser.showSaveDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+        File file = fileChooser.getSelectedFile();
+        // Asegúrate de que el archivo tenga la extensión .txt
+        if (!file.getName().endsWith(".txt")) {
+            file = new File(file.getAbsolutePath() + ".txt");
+        }
+        saveFile(TextAreaTexto, file);
+        
+        }
+    }//GEN-LAST:event_MenuGuardarComoActionPerformed
+
+    private void MenuGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuGuardarActionPerformed
+        if (currentFile != null) {
+        saveFile(TextAreaTexto, currentFile);
+        } else {
+            JFileChooser fileChooser = new JFileChooser();
+            // Configura el filtro para archivos .txt
+            FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("Text Files", "txt");
+            fileChooser.setFileFilter(txtFilter);
+
+            int returnValue = fileChooser.showSaveDialog(null);
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                // Asegúrate de que el archivo tenga la extensión .txt
+                if (!file.getName().endsWith(".txt")) {
+                    file = new File(file.getAbsolutePath() + ".txt");
+                }
+                saveFile(TextAreaTexto, file);
+            }
+        }
+    }//GEN-LAST:event_MenuGuardarActionPerformed
+
+    private void MenuArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuArchivoActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+    FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("Text Files", "txt");
+    fileChooser.setFileFilter(txtFilter);
+
+    int returnValue = fileChooser.showOpenDialog(null);
+    if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try (FileReader reader = new FileReader(file)) {
+                TextAreaTexto.read(reader, null);
+                // Establece la referencia al archivo actual
+                currentFile = file;
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error opening file: " + ex.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_MenuArchivoActionPerformed
+
+    private static void saveFile(JTextArea textArea, File file) {
+    try (FileWriter writer = new FileWriter(file)) {
+        textArea.write(writer);
+    } catch (IOException ex) {
+        
+        JOptionPane.showMessageDialog(null, "Error al guardar: " + ex.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+    
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ManejoCadena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ManejoCadena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ManejoCadena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ManejoCadena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ManejoCadena().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ContadorLetraA;
+    private javax.swing.JLabel ContadorLetraE;
+    private javax.swing.JLabel ContadorLetraI;
+    private javax.swing.JLabel ContadorLetraO;
+    private javax.swing.JLabel ContadorLetraU;
+    private javax.swing.JLabel ContadorLongitudTexto;
+    private javax.swing.JLabel ContadorTotalPalabras;
+    private javax.swing.JLabel LetraCentralTexto;
+    private javax.swing.JMenuItem MenuArchivo;
+    private javax.swing.JMenuItem MenuCopiar;
+    private javax.swing.JMenuItem MenuCortar;
+    private javax.swing.JMenuItem MenuGuardar;
+    private javax.swing.JMenuItem MenuGuardarComo;
+    private javax.swing.JMenuItem MenuPegar;
+    private javax.swing.JLabel PalabraCentral;
+    private javax.swing.JLabel PalabrasCantidadImpar;
+    private javax.swing.JLabel PalabrasCantidadPares;
+    private javax.swing.JPanel PanelInterfaz;
+    private javax.swing.JLabel PrimerLetraTexto;
+    private javax.swing.JLabel PrimerPalabra;
+    private javax.swing.JScrollPane ScrollTextAreaTexto;
+    private javax.swing.JScrollPane ScrollTextAreaTraduccion;
+    private javax.swing.JTextArea TextAreaTexto;
+    private javax.swing.JTextArea TextAreaTraduccion;
+    private javax.swing.JLabel UltimaLetraTexto;
+    private javax.swing.JLabel UltimaPalabra;
+    private javax.swing.JButton btnProcesar;
+    private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JLabel lblContadorLongitudTexto;
+    private javax.swing.JLabel lblContadorTotalPalabras;
+    private javax.swing.JLabel lblCuerpo;
+    private javax.swing.JLabel lblLetraCentralTexto;
+    private javax.swing.JLabel lblPalabraCentral;
+    private javax.swing.JLabel lblPrimerLetraTexto;
+    private javax.swing.JLabel lblPrimerPalabra;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblTituloTraductor;
+    private javax.swing.JLabel lblUltimaLetraTexto;
+    private javax.swing.JLabel lblUltimaPalabra;
+    // End of variables declaration//GEN-END:variables
+}

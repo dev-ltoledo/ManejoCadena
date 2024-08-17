@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JFileChooser" name="jFileChooser1">
+    </Component>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Archivo"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="MenuArchivo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Archivo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuArchivoActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="MenuGuardar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuGuardarActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="MenuGuardarComo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar como"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuGuardarComoActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Editar"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="MenuCopiar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Copiar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuCopiarActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="MenuCortar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cortar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuCortarActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="MenuPegar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pegar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuPegarActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reemplazar"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="PanelInterfaz" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="PanelInterfaz" min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="PanelInterfaz">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Component id="lblCuerpo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <Component id="ScrollTextAreaTexto" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnProcesar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                          <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="lblTituloTraductor" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lblUltimaLetraTexto" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="lblLetraCentralTexto" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblContadorTotalPalabras" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblPrimerLetraTexto" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblPrimerPalabra" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblPalabraCentral" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblUltimaPalabra" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblContadorLongitudTexto" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="ContadorLongitudTexto" alignment="0" pref="118" max="32767" attributes="0"/>
+                      <Component id="ContadorTotalPalabras" alignment="0" max="32767" attributes="0"/>
+                      <Component id="PrimerLetraTexto" alignment="0" max="32767" attributes="0"/>
+                      <Component id="UltimaLetraTexto" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="PrimerPalabra" max="32767" attributes="0"/>
+                              <Component id="LetraCentralTexto" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="PalabraCentral" max="32767" attributes="0"/>
+                      <Component id="UltimaPalabra" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="ContadorLetraA" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorLetraE" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorLetraI" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorLetraO" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorLetraU" min="-2" max="-2" attributes="0"/>
+                      <Component id="PalabrasCantidadPares" min="-2" max="-2" attributes="0"/>
+                      <Component id="PalabrasCantidadImpar" min="-2" pref="51" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              </Group>
+              <Component id="ScrollTextAreaTraduccion" alignment="1" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="lblCuerpo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="ScrollTextAreaTexto" min="-2" pref="139" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnProcesar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblContadorLongitudTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorLongitudTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorLetraA" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblContadorTotalPalabras" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorTotalPalabras" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorLetraE" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblPrimerLetraTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PrimerLetraTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorLetraI" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblUltimaLetraTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="UltimaLetraTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorLetraO" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblLetraCentralTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="LetraCentralTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContadorLetraU" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblPrimerPalabra" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PrimerPalabra" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PalabrasCantidadPares" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblPalabraCentral" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PalabraCentral" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PalabrasCantidadImpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblUltimaPalabra" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="UltimaPalabra" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="lblTituloTraductor" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="ScrollTextAreaTraduccion" min="-2" pref="127" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="ScrollTextAreaTexto">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="TextAreaTexto">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="ScrollTextAreaTraduccion">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="TextAreaTraduccion">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="btnProcesar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Procesar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProcesarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTitulo">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Manejo de cadena"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTituloTraductor">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Traducci&#xf3;n a clave murcielago"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCuerpo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ingrese un texto o abra un archivo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblContadorLongitudTexto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Longitud del texto"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblContadorTotalPalabras">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total de palabras"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblPrimerLetraTexto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Primer letra del texto"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblUltimaLetraTexto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xda;ltima letra del texto"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblLetraCentralTexto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Letra central del texto"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblPrimerPalabra">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Primera palabra"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblPalabraCentral">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Palabra central"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblUltimaPalabra">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xda;ltima palabra"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Repeticiones de &quot;A&quot;, &quot;a&quot; o &quot;&#xe1;&quot;:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel12">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Repeticiones de &quot;E&quot;, &quot;e&quot; &#xf3; &quot;&#xe9;&quot;:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel13">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Repeticiones de &quot;I&quot;, &quot;&#xed;&quot; &#xf3; &quot;&#xed;&quot;:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel14">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Repeticiones de &quot;O&quot;, &quot;o&quot; &#xf3; &quot;&#xf3;&quot;:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel15">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Repeticiones de &quot;U&quot;, &quot;u&quot; &#xf3; &quot;&#xfa;&quot;:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel16">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Palabras con cantidad de caracteres par:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel17">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Palabras con cantidad de caracteres impar:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ContadorLongitudTexto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ContadorTotalPalabras">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PrimerLetraTexto">
+        </Component>
+        <Component class="javax.swing.JLabel" name="UltimaLetraTexto">
+        </Component>
+        <Component class="javax.swing.JLabel" name="LetraCentralTexto">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PrimerPalabra">
+        </Component>
+        <Component class="javax.swing.JLabel" name="PalabraCentral">
+        </Component>
+        <Component class="javax.swing.JLabel" name="UltimaPalabra">
+        </Component>
+        <Component class="javax.swing.JLabel" name="ContadorLetraA">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ContadorLetraE">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ContadorLetraI">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ContadorLetraO">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ContadorLetraU">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PalabrasCantidadPares">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PalabrasCantidadImpar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
